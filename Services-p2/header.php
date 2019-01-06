@@ -59,12 +59,15 @@ session_start();
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Qualité et trim:</h6>
-            <a class="dropdown-item" href="login.html">Qualité </a>
-            <a class="dropdown-item" href="forgot-password.html">Trimmer </a>
+            <a class="dropdown-item" href="viewQuality.php">Qualité </a>
+            <a class="dropdown-item" href="trimFile.php">Trimmer </a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header">(Semantique) XML:</h6>
-            <a class="dropdown-item" href="404.html">404 Page</a>
-            <a class="dropdown-item active" href="blank.html">Blank Page</a>
+            <a class="dropdown-item" href="uploadFasta.php">Fasta à XML</a>
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">RESTful API:</h6>
+            <a class="dropdown-item" href="#">Recherche</a>
+            <a class="dropdown-item" href="#">Allignement</a>
           </div>
         </li>
       </ul>

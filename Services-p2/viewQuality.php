@@ -20,6 +20,10 @@ include "header.php";
       <i class="fas fa-angle-down"></i>
       Telecharger le fichier
       </a>
+      <a class="rounded" href="uploadFasta.php" style="display: inline;position: fixed;right: 15px;top: 140px;width: 150px;height: 50px;text-align: center;color: #fff;background: rgba(52, 58, 64, 0.5);line-height: 46px;z-index:500;">
+      <i class="fas fa-angle-right"></i>
+      page suivante
+      </a>
       <?
     }else{
       ?>

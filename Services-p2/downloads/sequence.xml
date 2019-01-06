@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<fasta>
+  <organisme>azdazda</organisme>
+  <date>2018-02-08</date>
+  <machine>my machine</machine>
+  <sequence>
+    <id>&gt;derice&#xD;
+</id>
+    <read>ACTGACTAGCTAGCTAACTG&#xD;
+</read>
+    <id>&gt;sanka&#xD;
+</id>
+    <read>GCATCGTAGCTAGCTACGAT&#xD;
+</read>
+    <id>&gt;junior&#xD;
+</id>
+    <read>CATCGATCGTACGTACGTAG&#xD;
+</read>
+    <id>&gt;yul&#xD;
+</id>
+    <read>ATCGATCGATCGTACGATCG</read>
+  </sequence>
+</fasta>

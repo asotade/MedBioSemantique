@@ -1,26 +1,36 @@
 <?
 include "header.php";
   //echo "session file  : ".$_SESSION["target_file"];
-  if(isset($_SESSION["target_file"])){
+  //session_start();
+  if(isset($_GET["viewFile"]) || isset($_SESSION["target_file"]) ){
     //echo "session set";
-    $target_file = $_SESSION["target_file"];
+    if(isset($_GET["viewFile"])) {
+      $target_file = $_GET["viewFile"];
+    }else{
+      $target_file = $_SESSION["target_file"];
+    }
+
     $reads = getReadsFromFile($target_file);
     $readsInfo = getSeqInfo($reads);
     ?>
-    <a class="button-next rounded" href="#page-top" style="display: inline;
-    position: fixed;
-    right: 15px;
-    top: 80px;
-    width: 150px;
-    height: 50px;
-    text-align: center;
-    color: #fff;
-    background: rgba(52, 58, 64, 0.5);
-    line-height: 46px;
-    z-index:500;">
-    <i class="fas fa-angle-right"></i>
-    page suivante
-    </a>
+    <?
+    if(isset($_GET["viewFile"])) {
+      ?>
+      <a download class="rounded" href="<?echo $_GET["viewFile"]; ?>" style="display: inline;position: fixed;right: 15px;top: 80px;width: 200px;height: 50px;text-align: center;color: #fff;background: rgba(52, 58, 64, 0.5);line-height: 46px;z-index:500;">
+      <i class="fas fa-angle-down"></i>
+      Telecharger le fichier
+      </a>
+      <?
+    }else{
+      ?>
+      <a class="rounded" href="trimFile.php" style="display: inline;position: fixed;right: 15px;top: 80px;width: 150px;height: 50px;text-align: center;color: #fff;background: rgba(52, 58, 64, 0.5);line-height: 46px;z-index:500;">
+      <i class="fas fa-angle-right"></i>
+      page suivante
+      </a>
+      <?
+    }
+     ?>
+
     <div class="container-fluid">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">

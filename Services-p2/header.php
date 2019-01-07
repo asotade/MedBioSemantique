@@ -14,6 +14,7 @@ session_start();
   <title>MedBioSemantique - Services</title>
 
   <!-- Bootstrap core CSS-->
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template-->
@@ -24,6 +25,8 @@ session_start();
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="vendor/tagsinput/tagsinput.css" rel="stylesheet" type="text/css">
+
 
 </head>
 
@@ -59,6 +62,7 @@ session_start();
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Qualité et trim:</h6>
+            <a class="dropdown-item" href=".">Télécharger un fichier </a>
             <a class="dropdown-item" href="viewQuality.php">Qualité </a>
             <a class="dropdown-item" href="trimFile.php">Trimmer </a>
             <div class="dropdown-divider"></div>
@@ -66,8 +70,8 @@ session_start();
             <a class="dropdown-item" href="uploadFasta.php">Fasta à XML</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header">RESTful API:</h6>
-            <a class="dropdown-item" href="#">Recherche</a>
-            <a class="dropdown-item" href="#">Allignement</a>
+            <a class="dropdown-item" href="findREST.php">Recherche</a>
+            <a class="dropdown-item" href="allignREST.php">Allignement</a>
           </div>
         </li>
       </ul>

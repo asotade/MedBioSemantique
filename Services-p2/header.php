@@ -34,7 +34,7 @@ session_start();
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">MedBioSemantique</a>
+      <a class="navbar-brand mr-1" href=".">MedBioSemantique</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -51,13 +51,13 @@ session_start();
       <ul class="sidebar navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="../index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-home"></i>
             <span>Acceuil</span>
           </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-folder"></i>
+            <i class="fas fa-fw fa-bars"></i>
             <span>Étapes</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">

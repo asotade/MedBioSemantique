@@ -8,8 +8,8 @@ include "header.php";
       <a href="#">Services</a>
     </li>
     <li class="breadcrumb-item active">Alignement</li>
-    <h1>Prochainnement .. </h1>
   </ol>
+  <h1>Prochainnement .. </h1>
 </div>
 <?
 

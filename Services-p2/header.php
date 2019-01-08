@@ -71,7 +71,7 @@ session_start();
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header">RESTful API:</h6>
             <a class="dropdown-item" href="findREST.php">Recherche</a>
-            <a class="dropdown-item" href="allignREST.php">Allignement</a>
+            <a class="dropdown-item" href="alignREST.php">Allignement</a>
           </div>
         </li>
       </ul>

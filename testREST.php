@@ -17,24 +17,29 @@ curl_close($curl);
 echo var_export($curl_response);
 */
 
-
+//header('Content-Type: text/xml');
 $data["query"] = "kinase+homo+sapiens";
 $data["result"] = "sequence_release";
 
-$data["display"] = "fasta";
+$data["display"] = "xml";
 $data["offset"] = 1 ;//start
-$data["length"] = 10 ; //start
+$data["length"] = 1000 ; //start
 
 //$data["resultcount"]="";
 
 $url= "https://www.ebi.ac.uk/ena/data/search";
 
 $test = sprintf("%s?%s", $url, http_build_query($data));
-//echo $test;
+echo $test."<br><br>";
 
 
 $get_data = callAPI($data,$url);
-echo $get_data;
+$xml = simplexml_load_string($get_data["response"]);
+//echo$get_data["response"];
+foreach ($xml as $element) {
+  // code...
+  echo "<p>".$element["accession"]." - ".$element->description."</p>";
+}
 
 function callAPI($data=false, $url="https://www.ebi.ac.uk/ena/data/search",  $method="GET"){
    $curl = curl_init();
@@ -64,8 +69,11 @@ function callAPI($data=false, $url="https://www.ebi.ac.uk/ena/data/search",  $me
    // EXECUTE:
    $result = curl_exec($curl);
    if(!$result){die("Connection Failure");}
+   $all["response"]=$result;
+   $all["info"] = curl_getinfo($curl);
    curl_close($curl);
-   return $result;
+
+   return $all;
 }
 
 

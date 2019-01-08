@@ -10,7 +10,7 @@ include "header.php";
     <li class="breadcrumb-item active">Recherche</li>
   </ol>
 
-  <form class="" action="gotoFindREST.php" method="post">
+  <form class="" action="findREST.php" method="get">
 
     <div class="card mb-3">
       <div class="card-header">
@@ -35,17 +35,91 @@ include "header.php";
 </div>
 <?
 
+if(isset($_GET["mots-cles"])){
+
+  $tags = formTagsToApiTags($_GET["mots-cles"]);
+  $data["query"] = $tags;
+  $data["result"] = "sequence_release";
+  $data["display"] = "xml";
+  $data["offset"] = 1 ;//start
+  $data["length"] = 100 ; //start
+  $xmlString = callAPI($data);
+  libxml_use_internal_errors(true);
+  $xml = simplexml_load_string($xmlString);
+  //echo "<h1>".count($xml)."</h1>";
+  file_put_contents("downloads/restSearchResult.xml", $xmlString);
+
+  ?>
+
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fas fa-table"></i>
+      Résultat de Recherche - <a href="downloads/restSearchResult.xml"> telecharger la résultat</a> </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Description</th>
+              <th>Premier publication</th>
+              <th>Dernier Mis a jour</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Id</th>
+              <th>Description</th>
+              <th>Premier publication</th>
+              <th>Dernier Mis a jour</th>
+            </tr>
+          </tfoot>
+          <tbody>
 
 
 
-function getDataFromAPI($data){
+
+
+
+
+  <?
+  if(count($xml) >1 ){
+  foreach ($xml as $element) {
+    // code...
+    $row = sprintf("<tr> <td> %s </td>  <td> %s </td>  <td> %s </td>  <td> %s </td> </tr>",$element["accession"],$element->description,$element["firstPublic"],$element["lastUpdated"]);
+    echo $row;
+  }
+}
+
+?>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+<?
+//echo formTagsToApiTags($_GET["mots-cles"]);
 
 }
 
-function getCountFromAPI($data){
-  $data["resultcount"]="";
-  return callAPI($data);
+
+
+function formTagsToApiTags($formTags){
+  $tagsArray = explode(",",$formTags);
+  $apiTags = "";
+  foreach ($tagsArray as $tag) {
+    // code...
+    $apiTags .= $tag ."+";
+  }
+  $apiTags = substr($apiTags,0,strlen($apiTags)-1);
+  return $apiTags;
 }
+
+
+
 
 
 function callAPI($data=false, $url="https://www.ebi.ac.uk/ena/data/search",  $method="GET"){
